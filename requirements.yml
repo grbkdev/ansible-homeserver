@@ -1,7 +1,6 @@
 ---
 roles:
   - name: geerlingguy.docker
-  - name: artis3n.tailscale
   - name: robertdebock.postfix
 collections:
   - name: ansible.posix
@@ -9,3 +8,4 @@ collections:
   - name: community.docker
   - name: hifis.toolkit
   - name: vladgh.samba
+  - name: artis3n.tailscale
