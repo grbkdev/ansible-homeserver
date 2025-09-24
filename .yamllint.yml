@@ -5,6 +5,7 @@ ignore: |
   .ansible/
   .galaxy-collections/
   .galaxy-roles/
+  inventories/host_vars/zapodaj.yml
 
 rules:
   line-length:
