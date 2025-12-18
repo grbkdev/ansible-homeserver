@@ -2,7 +2,7 @@
 - name: Start Watchtower container
   community.docker.docker_container:
     name: watchtower
-    image: containrrr/watchtower:latest
+    image: nickfedor/watchtower:latest
     pull: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
