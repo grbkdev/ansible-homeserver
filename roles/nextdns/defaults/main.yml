@@ -1,5 +1,4 @@
 ---
 nextdns_memory: 1g
-nextdns_listen: -listen=:53
 nextdns_profile: "{% if nextdns_configuration_id is defined %}-profile={{ nextdns_configuration_id }}{% endif %}"
-nextdns_command: run {{ nextdns_listen }} {{ nextdns_profile }}
+nextdns_command: run {{ nextdns_profile }} -listen=:53 -report-client-info
