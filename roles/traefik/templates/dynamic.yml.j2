@@ -1,0 +1,12 @@
+http:
+  routers:
+    hass:
+      rule: Host(`hass.{{ traefik_domain }}`)
+      service: hass
+      tls:
+        certResolver: letsencrypt
+  services:
+    hass:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.3.3:8123"
