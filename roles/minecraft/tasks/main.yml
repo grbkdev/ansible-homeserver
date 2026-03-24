@@ -24,4 +24,5 @@
     memory: 6g
     volumes:
       - "{{ minecraft_data_directory }}/{{ item.name }}:/data:rw"
+    state: "{{ item.state | default('started') }}"
   with_items: "{{ minecraft_servers }}"
