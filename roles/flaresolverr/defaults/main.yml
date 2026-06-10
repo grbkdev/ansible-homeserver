@@ -1,4 +1,4 @@
 ---
 flaresolverr_memory: 1g
-flaresolverr_port: 8191
+flaresolverr_network_mode: container:gluetun
 flaresolverr_domain: "{{ homeserver_domain }}"

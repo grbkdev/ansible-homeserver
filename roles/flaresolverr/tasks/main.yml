@@ -4,10 +4,9 @@
     name: flaresolverr
     image: flaresolverr/flaresolverr:latest
     pull: true
-    ports:
-      - "{{ flaresolverr_port }}:8191"
     restart_policy: unless-stopped
     memory: "{{ flaresolverr_memory }}"
+    network_mode: "{{ flaresolverr_network_mode }}"
     labels:
       traefik.enable: "{{ true | string }}"
       traefik.http.routers.flaresolverr.rule: Host(`flaresolverr.{{ flaresolverr_domain }}`)

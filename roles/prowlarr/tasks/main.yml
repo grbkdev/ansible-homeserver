@@ -11,13 +11,12 @@
     name: prowlarr
     image: linuxserver/prowlarr:latest
     pull: true
-    ports:
-      - "{{ prowlarr_port }}:9696"
     env:
       PUID: "{{ prowlarr_user_id }}"
       PGID: "{{ prowlarr_group_id }}"
     restart_policy: unless-stopped
     memory: "{{ prowlarr_memory }}"
+    network_mode: "{{ prowlarr_network_mode }}"
     volumes:
       - "{{ prowlarr_config_directory }}:/config:rw"
     labels:
