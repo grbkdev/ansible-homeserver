@@ -1,30 +1,30 @@
 ---
-- name: Create Overseerr directories
+- name: Create Seerr directories
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
     mode: "0755"
   with_items:
-    - "{{ overseerr_config_directory }}"
-- name: Start Overseerr container
+    - "{{ seerr_config_directory }}"
+- name: Start Seerr container
   community.docker.docker_container:
-    name: overseerr
-    image: sctx/overseerr:latest
+    name: seerr
+    image: seerr/seerr:latest
     pull: true
     ports:
-      - "{{ overseerr_port }}:5055"
+      - "{{ seerr_port }}:5055"
     env:
       LOG_LEVEL: info
     restart_policy: unless-stopped
-    memory: "{{ overseerr_memory }}"
-    user: "{{ overseerr_user_id }}:{{ overseerr_group_id }}"
+    memory: "{{ seerr_memory }}"
+    user: "{{ seerr_user_id }}:{{ seerr_group_id }}"
     volumes:
-      - "{{ overseerr_config_directory }}:/app/config:rw"
+      - "{{ seerr_config_directory }}:/app/config:rw"
     labels:
       traefik.enable: "{{ true | string }}"
-      traefik.http.routers.overseerr.rule: Host(`overseerr.{{ overseerr_domain }}`)
-      traefik.http.routers.overseerr.tls: "true"
-      traefik.http.routers.overseerr.tls.certresolver: letsencrypt
-      traefik.http.routers.overseerr.tls.domains[0].main: "{{ overseerr_domain }}"
-      traefik.http.routers.overseerr.tls.domains[0].sans: "*.{{ overseerr_domain }}"
-      traefik.http.services.overseerr.loadbalancer.server.port: "5055"
+      traefik.http.routers.seerr.rule: Host(`seerr.{{ seerr_domain }}`)
+      traefik.http.routers.seerr.tls: "true"
+      traefik.http.routers.seerr.tls.certresolver: letsencrypt
+      traefik.http.routers.seerr.tls.domains[0].main: "{{ seerr_domain }}"
+      traefik.http.routers.seerr.tls.domains[0].sans: "*.{{ seerr_domain }}"
+      traefik.http.services.seerr.loadbalancer.server.port: "5055"

@@ -1,7 +1,7 @@
 ---
-overseerr_memory: 1g
-overseerr_port: 5055
-overseerr_user_id: "{{ homeserver_user_id }}"
-overseerr_group_id: "{{ homeserver_group_id }}"
-overseerr_config_directory: "{{ homeserver_docker_home }}/overseerr/config"
-overseerr_domain: "{{ homeserver_domain }}"
+seerr_memory: 1g
+seerr_port: 5055
+seerr_user_id: "{{ homeserver_user_id }}"
+seerr_group_id: "{{ homeserver_group_id }}"
+seerr_config_directory: "{{ homeserver_docker_home }}/seerr/config"
+seerr_domain: "{{ homeserver_domain }}"

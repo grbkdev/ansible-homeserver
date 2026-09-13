@@ -24,9 +24,9 @@
     - name: Deploy Flaresolverr
       ansible.builtin.include_role:
         name: flaresolverr
-    - name: Deploy Overseerr
+    - name: Deploy Seerr
       ansible.builtin.include_role:
-        name: overseerr
+        name: seerr
     - name: Deploy Plex
       ansible.builtin.include_role:
         name: plex
