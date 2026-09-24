@@ -1,7 +1,11 @@
 ---
 gluetun_memory: 1g
+gluetun_flaresolverr_port: 8191
 gluetun_transmission_port: 9091
+gluetun_http_proxy_port: 8888
 gluetun_ports:
+  - "{{ gluetun_flaresolverr_port }}:8191"
   - "{{ gluetun_transmission_port }}:9091"
+  - "{{ gluetun_http_proxy_port }}:8888"
   - 51413:51413
   - 51413:51413/udp
